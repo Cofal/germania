@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'dart:typed_data';
+import 'dart:html' as html; 
 import '../widgets/animated_icon_widget.dart';
 import '../widgets/circle_button.dart';
 import '../services/recording_service.dart';
 import '../services/assessment_service.dart';
-import 'dart:html' as html;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -194,7 +194,8 @@ class ChatScreenState extends State<ChatScreen> {
             : messageType == 'audio'
                 ? IconButton(
                     icon: const Icon(Icons.play_arrow),
-                    onPressed: () => _recordingService.playAudio(message['data']),
+                    onPressed: () =>
+                        _recordingService.playAudio(message['data']),
                   )
                 : messageType == 'assessment'
                     ? Column(
@@ -215,7 +216,7 @@ class ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Germania'),
+        title: const Text('Chat Screen'),
       ),
       body: Column(
         children: [
@@ -237,7 +238,7 @@ class ChatScreenState extends State<ChatScreen> {
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 6.0,
@@ -251,7 +252,7 @@ class ChatScreenState extends State<ChatScreen> {
                           ? 'Transcribed text will appear here...'
                           : _transcribedText,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 16.0, fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -265,7 +266,7 @@ class ChatScreenState extends State<ChatScreen> {
                       onPressed:
                           _isRecording ? _stopRecording : _startRecording,
                     ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     CircleButton(
                       icon: const Icon(Icons.play_arrow),
                       color: Colors.green,
@@ -273,7 +274,7 @@ class ChatScreenState extends State<ChatScreen> {
                           ? () => _recordingService.playAudio(_recordedData!)
                           : null,
                     ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     CircleButton(
                       icon: const Icon(Icons.send),
                       color: Colors.blue,

@@ -45,6 +45,7 @@ dependencies:
   universal_io: ^2.2.2
   js: ^0.7.1
   speech_to_text: ^6.6.1
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:
